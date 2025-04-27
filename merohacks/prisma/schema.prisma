@@ -1,0 +1,81 @@
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+// prisma/schema.prisma
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  //directUrl = env("DATABASE_URL_UNPOOLED")
+}
+
+generator client {    // For type-safety, which asbtracts the complexity of raw database queries, allowing us to interact with our database using a clean and intuitive API.
+  provider = "prisma-client-js"
+}
+
+enum UserRole{
+  DOCTOR
+  USER
+}
+
+model User{
+  id      String      @id @default(cuid())
+  name    String?
+  password  String?       // If we use OAuth providers like google or github we dont need password
+  role      UserRole @default(USER)
+  email   String?  @unique
+  emailVerified   DateTime?
+  image           String?
+  accounts        Account[]
+
+}
+
+
+model Account {
+  id                 String  @id @default(cuid())   // id should be of type String. Here cuid generates a unique identifier in the database., 
+  userId             String  @map("user_id")    // userId should be a string and this will map the user_id on the column
+  type               String
+  provider           String
+  providerAccountId  String  @map("provider_account_id")    // Again maps the provider account id if it is a github or google 
+  refresh_token      String? @db.Text   // 
+  access_token       String? @db.Text
+  expires_at         Int?
+  token_type         String?
+  scope              String?
+  id_token           String? @db.Text
+  session_state      String?
+ 
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+ 
+  @@unique([provider, providerAccountId])
+  @@map("accounts")
+}
+
+
+model VerificationToken {
+  id String @id @default(cuid())
+  email String
+  token String @unique
+  expires DateTime
+
+  @@unique([email, token])
+}
+
+model PasswordResetToken{
+  id String @id @default(cuid())
+  email String
+  token String @unique
+  expires DateTime
+
+  @@unique([email, token])
+
+}
+
+
+
+
+
+
+
+
+
+
+
