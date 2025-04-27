@@ -40,8 +40,8 @@ export default function LoginSecurity() {
       </div>
 
       {/* ← ONLY one child (the <Link>), and valid size="sm" */}
-      <Button asChild variant="outline" size="sm">
-        <Link href="/settings/editinformation">Edit</Link>
+      <Button asChild variant="outline" size="sm" className="flex ">
+        <Link href="/home">back</Link>
       </Button>
     </div>
   );

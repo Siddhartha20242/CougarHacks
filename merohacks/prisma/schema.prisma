@@ -27,7 +27,6 @@ model User{
   accounts        Account[]
 
 
-  EditInformation EditInformation[]
 }
 
 
@@ -69,19 +68,6 @@ model PasswordResetToken{
 
   @@unique([email, token])
 
-}
-
-model EditInformation {
-  id        String   @id @default(cuid())
-  user      User     @relation(fields: [userId], references: [id])
-  userId    String
-  oldName   String?
-  oldEmail  String?
-  newName   String?
-  newEmail  String?
-  editedAt  DateTime @default(now())
-
-  @@map("edit_information")
 }
 
 
