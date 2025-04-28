@@ -52,17 +52,17 @@ export async function POST(req: Request) {
 
   // Now let's put together the actual email message.
   const mailOptions = {
-    from: EMAIL_USERNAME,     // Who is sending the email? (Us!)
-    to: RECEIVER_EMAIL,       // Who is getting the email? (The important person!)
+    from: EMAIL_USERNAME,    
+    to: RECEIVER_EMAIL,      
     subject: "There is an issue in Caldwell University", // The title of the email, so they know what it's about.
     text: `
 New Incident Report:
 
-From: ${user.name}       // Who is reporting the issue?
-Email: ${user.email}      // How can they be contacted?
+From: ${user.name}      
+Email: ${user.email}      
 
 Message:
-${message}                // The actual problem they are reporting.
+${message}             
     `, // This is the main body of the email, just plain text.
   };
 

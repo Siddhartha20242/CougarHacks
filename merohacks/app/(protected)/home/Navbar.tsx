@@ -26,7 +26,7 @@ const Navbar = () => {
       <div className="container mx-auto px-6 flex justify-between items-center h-16">
        
         <Link href="/home" className="text-xl md:text-2xl font-bold tracking-tight text-indigo-600">
-          Cougar Connects With AI
+          Cougar Health
         </Link>
 
        

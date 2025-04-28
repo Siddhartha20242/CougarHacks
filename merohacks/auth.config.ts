@@ -1,4 +1,4 @@
-import bcrypt from 'bcryptjs';      // used for hashing
+import bcrypt from 'bcryptjs';  // used for hashing
 import Credentials from 'next-auth/providers/credentials';      // used for signing in password with usernames and other realted things
 import type { NextAuthConfig } from 'next-auth';        // allows for type-safe configuration
 

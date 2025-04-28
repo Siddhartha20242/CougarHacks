@@ -35,12 +35,10 @@ export default function Home() {
     "PrismaORM",
     "TypeScript",
     "Zod(For TypeScript Validation)",
-    "Docker(For Containerization)",
-    "AWS(Maybe We will Try)",
     "ShadCnUI",
     "ActernityUI",
     "GROQ(For AI API)",
-    ""
+   
    
     
   ]
@@ -63,9 +61,9 @@ export default function Home() {
         {/* Idea Card  This is the idea card and we are using this so that we can */}
         <div className="bg-white rounded-xl shadow-md p-8 w-full md:w-1/2">
           <TypewriterEffect 
-            words={[{ text: "I. D. E. A" }]}  // ensure letters are visible
-            className="text-black dark:text-white"                                   // top‐level text color
-            cursorClassName="bg-black dark:bg-white"                                 // matching cursor
+            words={[{ text: "I. D. E. A" }]}  
+            className="text-black dark:text-white"                              
+            cursorClassName="bg-black dark:bg-white"                                
           />
 
           <p className="text-gray-700 leading-relaxed mb-4">
